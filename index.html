@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>ProTV News & Radio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+
+        body {
+        margin: 0;
+        font-family: Arial;
+        font-size: 17px;
+        }
+
+        #myVideo {
+        position: fixed;
+        margin: auto;
+        width: 100%;
+        max-height: 100%;
+        }
+
+        .content {
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        width: 100%;
+        padding: 20px;
+        }
+
+        .myBtn {
+        width: 33%;
+        font-size: 18px;
+        padding: 10px;
+        border: none;
+        background: #666666;
+        color: #ffffff;
+        cursor: pointer;
+        }
+
+        .myBtn:hover {
+        background: #222222;
+        }
+        
+    </style>
+    </head>
+    <body>
+
+        <video id="myVideo" autoplay muted onclick="this.muted=false;  this.requestFullscreen();">
+            <source src="https://cmero-ott-live.ssl.cdn.cra.cz/channels/cme-ro-voyo-news/playlist.m3u8?offsetSeconds=0&url=0" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+        <div class="content">
+            <h1 id="rnm" style="text-align: center; cursor: pointer;" onclick="myFunction()"></h1>
+            <audio id="radio" autoplay>
+                <source id="radio_src" src="">
+            </audio>
+            <button class="myBtn" onclick="RRA()" type="button">Actualitati</button> 
+            <button class="myBtn" onclick="RRC()" type="button">Cultural</button> 
+            <button class="myBtn" onclick="RRM()" type="button">Muzical</button> 
+        </div>
+
+        <script>
+            function RRA() {
+                document.getElementById("myVideo").pause();
+                document.getElementById("myVideo").style.visibility="hidden";
+                document.getElementById("radio_src").src = "https://stream4.srr.ro:8443/romania-actualitati";
+                document.getElementById("radio").load();
+                document.getElementById("rnm").innerHTML = "Radio Romania Actualitati";
+            }
+            function RRC() {
+                document.getElementById("myVideo").pause();
+                document.getElementById("myVideo").style.visibility="hidden";
+                document.getElementById("radio_src").src = "https://stream4.srr.ro:8443/romania-cultural";
+                document.getElementById("radio").load();
+                document.getElementById("rnm").innerHTML = "Radio Romania Cultural";
+            }
+            function RRM() {
+                document.getElementById("myVideo").pause();
+                document.getElementById("myVideo").style.visibility="hidden";
+                document.getElementById("radio_src").src = "https://stream4.srr.ro:8443/romania-muzical";
+                document.getElementById("radio").load();
+                document.getElementById("rnm").innerHTML = "Radio Romania Muzical";
+            }
+            function myFunction() {
+                document.getElementById("radio").pause();
+                document.getElementById("myVideo").load();
+                document.getElementById("myVideo").style.visibility="visible";
+                document.getElementById("rnm").innerHTML = "";
+            }
+        </script>
+
+    </body>
+</html>
