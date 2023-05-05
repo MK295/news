@@ -3,7 +3,7 @@
     <head>
     <title>ProTV News & Radio</title>
     <link rel="icon" type="image/x-icon" href="favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
     * {
         box-sizing: border-box;
@@ -19,19 +19,18 @@
 
      .vidcon {
         display: flex;
-        height: 640px;
+        height:  600px;
         align-items: center;
         justify-content: center;
     }
     
     .vidcon video {
-         flex: 0 1 640px;
+         height: 540px;
          max-width: 100%;
     }
     
     .content {
         display: flex;
-        height: 160px;
         align-items: center;
         justify-content: space-around;
         background-color: #000040;
@@ -39,12 +38,16 @@
 
     .content button {
         flex: 1 1 100px;
-        margin: 10px;
+        margin: 14px;
         padding: 10px;
         border: none;
         color:  #FFFFFF;
         background-color: #666666;
         cursor: pointer;
+    }
+
+    .content button:hover {
+        background: #222222;
     }
         
     </style>
