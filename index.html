@@ -14,7 +14,7 @@
         font-family: Arial;
         font-size: 17px;
         color:  #FFFFFF;
-        background-color: #000000; 
+        background-color: #101010; 
     }
 
      .vidcon {
@@ -33,7 +33,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        background-color: #000040;
+        background-color: #000060;
     }
 
     .content button {
@@ -42,12 +42,7 @@
         padding: 10px;
         border: none;
         color:  #FFFFFF;
-        background-color: #666666;
         cursor: pointer;
-    }
-
-    .content button:hover {
-        background: #222222;
     }
         
     </style>
@@ -55,10 +50,10 @@
     <body>
         
         <div class="content" id="content">
-            <button style="background-color: #000040" onclick="myFunction()" type="button">ProTV News</button> 
-            <button style="background-color: #400000" onclick="RRA()" type="button">Actualitati</button> 
-            <button style="background-color: #404000" onclick="RRC()" type="button">Cultural</button> 
-            <button style="background-color: #400040" onclick="RRM()" type="button">Muzical</button> 
+            <button style="background-color: #000060" onclick="myFunction()" type="button">ProTV News</button> 
+            <button style="background-color: #600000" onclick="RRA()" type="button">Actualitati</button> 
+            <button style="background-color: #606000" onclick="RRC()" type="button">Cultural</button> 
+            <button style="background-color: #600060" onclick="RRM()" type="button">Muzical</button> 
         </div>
 
         <div class ="vidcon">
@@ -77,27 +72,27 @@
                 document.getElementById("myVideo").style.visibility="hidden";
                 document.getElementById("radio_src").src = "https://stream4.srr.ro:8443/romania-actualitati";
                 document.getElementById("radio").load();
-                document.getElementById("content").style.backgroundColor = "#400000";
+                document.getElementById("content").style.backgroundColor = "#600000";
             }
             function RRC() {
                 document.getElementById("myVideo").pause();
                 document.getElementById("myVideo").style.visibility="hidden";
                 document.getElementById("radio_src").src = "https://stream4.srr.ro:8443/romania-cultural";
                 document.getElementById("radio").load();
-                document.getElementById("content").style.backgroundColor = "#404000";
+                document.getElementById("content").style.backgroundColor = "#606000";
             }
             function RRM() {
                 document.getElementById("myVideo").pause();
                 document.getElementById("myVideo").style.visibility="hidden";
                 document.getElementById("radio_src").src = "https://stream4.srr.ro:8443/romania-muzical";
                 document.getElementById("radio").load();
-                document.getElementById("content").style.backgroundColor = "#400040";
+                document.getElementById("content").style.backgroundColor = "#600060";
             }
             function myFunction() {
                 document.getElementById("radio").pause();
                 document.getElementById("myVideo").load();
                 document.getElementById("myVideo").style.visibility="visible";
-                document.getElementById("content").style.backgroundColor = "#000040";
+                document.getElementById("content").style.backgroundColor = "#000060";
             }
         </script>
 
