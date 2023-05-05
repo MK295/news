@@ -5,64 +5,71 @@
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        * {
+    * {
         box-sizing: border-box;
-        }
+    }
 
-        body {
+    body {
         margin: 0;
         font-family: Arial;
         font-size: 17px;
-        background: black; 
-        }
+        color:  #FFFFFF;
+        background-color: #000000; 
+    }
 
-        #myVideo {
-        position: fixed;
-        margin: auto;
-        width: 100%;
-        max-height: 100%;
-        }
+     .vidcon {
+        display: flex;
+        height:  80%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .vidcon video {
+         max-height: 100%;
+         max-width: 100%;
+    }
+    
+    .content {
+        display: flex;
+        height: 20%;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #000040;
+    }
 
-        .content {
-        position: fixed;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        color: #ffffff;
-        width: 100%;
-        padding: 10px;
-        }
-
-        .myBtn {
-        width: 33%;
-        font-size: 16px;
+    .content button {
+        flex: 1 1 100px;
+        margin: 10px;
         padding: 10px;
         border: none;
-        background: #666666;
-        color: #ffffff;
+        color:  #FFFFFF;
+        background-color: #666666;
         cursor: pointer;
-        }
+    }
 
-        .myBtn:hover {
+    .content button:hover {
         background: #222222;
-        }
+    }
         
     </style>
     </head>
     <body>
 
-        <video id="myVideo" autoplay muted onclick="this.muted=false;  this.requestFullscreen();">
-            <source src="https://cmero-ott-live.ssl.cdn.cra.cz/channels/cme-ro-voyo-news/playlist.m3u8?offsetSeconds=0&url=0" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
-
-        <div class="content">
+        <div class ="vidcon">
             <audio id="radio" autoplay>
                 <source id="radio_src" src="">
             </audio>
-            <p id="rnm" style="text-align: center; cursor: pointer;" onclick="myFunction()">Radio paused</p>
-            <button class="myBtn" onclick="RRA()" type="button">Actualitati</button> 
-            <button class="myBtn" onclick="RRC()" type="button">Cultural</button> 
-            <button class="myBtn" onclick="RRM()" type="button">Muzical</button> 
+            <video id="myVideo" autoplay muted onclick="this.muted=false;  this.requestFullscreen();">
+                <source src="https://cmero-ott-live.ssl.cdn.cra.cz/channels/cme-ro-voyo-news/playlist.m3u8?offsetSeconds=0&url=0" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+
+        <div class="content" id="content">
+            <button style="background-color: #000040" onclick="myFunction()" type="button">ProTV News</button> 
+            <button style="background-color: #400000" onclick="RRA()" type="button">Actualitati</button> 
+            <button style="background-color: #404000" onclick="RRC()" type="button">Cultural</button> 
+            <button style="background-color: #400040" onclick="RRM()" type="button">Muzical</button> 
         </div>
 
         <script>
@@ -71,27 +78,27 @@
                 document.getElementById("myVideo").style.visibility="hidden";
                 document.getElementById("radio_src").src = "https://stream4.srr.ro:8443/romania-actualitati";
                 document.getElementById("radio").load();
-                document.getElementById("rnm").innerHTML = "Radio Romania Actualitati";
+                document.getElementById("content").style.backgroundColor = "#400000";
             }
             function RRC() {
                 document.getElementById("myVideo").pause();
                 document.getElementById("myVideo").style.visibility="hidden";
                 document.getElementById("radio_src").src = "https://stream4.srr.ro:8443/romania-cultural";
                 document.getElementById("radio").load();
-                document.getElementById("rnm").innerHTML = "Radio Romania Cultural";
+                document.getElementById("content").style.backgroundColor = "#404000";
             }
             function RRM() {
                 document.getElementById("myVideo").pause();
                 document.getElementById("myVideo").style.visibility="hidden";
                 document.getElementById("radio_src").src = "https://stream4.srr.ro:8443/romania-muzical";
                 document.getElementById("radio").load();
-                document.getElementById("rnm").innerHTML = "Radio Romania Muzical";
+                document.getElementById("content").style.backgroundColor = "#400040";
             }
             function myFunction() {
                 document.getElementById("radio").pause();
                 document.getElementById("myVideo").load();
                 document.getElementById("myVideo").style.visibility="visible";
-                document.getElementById("rnm").innerHTML = "";
+                document.getElementById("content").style.backgroundColor = "#000040";
             }
         </script>
 
